@@ -79,6 +79,17 @@ export default function About() {
                 propres découvertes.
               </p>
             </div>
+
+            <div className="bg-asphalt/80 backdrop-blur-sm p-6 rounded-xl border border-secondary/20 hover:border-secondary/40 transition-colors">
+              <h3 className="text-2xl font-semibold text-light mb-3 flex items-center">
+                <span className="text-secondary mr-3 text-2xl">✓</span>
+                Votre Garage
+              </h3>
+              <p className="text-text-secondary">
+                Gérez vos véhicules et suivez vos sorties directement depuis votre garage. 
+                Choisissez votre moto ou voiture pour chaque balade et consultez l'historique de vos trajets.
+              </p>
+            </div>
           </motion.div>
         </div>
 
