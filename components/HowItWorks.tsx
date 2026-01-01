@@ -57,40 +57,61 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="relative"
+      className="relative h-full flex"
     >
-      <div className="bg-asphalt p-8 rounded-2xl border border-secondary/20 hover:border-secondary/40 transition-all duration-300 hover:shadow-lg hover:shadow-secondary/10 text-center">
-        <div className="absolute -top-4 -right-4 w-12 h-12 bg-secondary rounded-full flex items-center justify-center text-primary font-bold text-xl">
+      <motion.div
+        whileHover={{ y: -6, scale: 1.03 }}
+        className="relative bg-gradient-to-br from-asphalt via-asphalt/95 to-primary/90 p-10 pt-14 rounded-3xl border-2 border-secondary/30 hover:border-secondary/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,200,150,0.15)] shadow-2xl backdrop-blur-sm text-center overflow-visible group h-full flex flex-col"
+      >
+        {/* Premium glow effect */}
+        <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
+        
+        <motion.div
+          whileHover={{ scale: 1.2, rotate: 360 }}
+          transition={{ duration: 0.5 }}
+          className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-br from-secondary to-secondary/80 rounded-full flex items-center justify-center text-primary font-extrabold text-2xl shadow-[0_10px_30px_rgba(0,200,150,0.4)] border-2 border-secondary/50 z-20"
+        >
           {step.number}
-        </div>
-        <div className="text-secondary mb-4 flex justify-center">{step.icon}</div>
-        <h3 className="text-xl font-bold text-light mb-2">{step.title}</h3>
-        <p className="text-text-secondary text-sm">{step.description}</p>
-      </div>
+        </motion.div>
+        <motion.div
+          whileHover={{ scale: 1.15, rotate: 5 }}
+          className="text-secondary mb-6 flex justify-center drop-shadow-[0_0_15px_rgba(0,200,150,0.4)]"
+        >
+          {step.icon}
+        </motion.div>
+        <h3 className="text-2xl md:text-3xl font-extrabold text-light mb-3 tracking-tight">{step.title}</h3>
+        <p className="text-text-secondary text-base md:text-lg font-light">{step.description}</p>
+      </motion.div>
     </motion.div>
   );
 }
 
 export default function HowItWorks() {
   return (
-    <section className="py-20 bg-primary">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-32 bg-gradient-to-b from-primary via-asphalt/30 to-primary overflow-visible">
+      {/* Premium background */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,200,150,0.04),transparent_70%)]" />
+      <div className="absolute inset-0 opacity-[0.02]">
+        <div className="absolute inset-0 bg-[url('/bg-home.png')] bg-cover bg-center blur-3xl scale-150" />
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="text-center mb-20"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-light mb-6 tracking-tight">
             Comment ça marche ?
           </h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto leading-relaxed font-light">
             Rejoignez la communauté en 4 étapes simples
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
           {steps.map((step, index) => (
             <StepCard key={index} step={step} index={index} />
           ))}

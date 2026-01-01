@@ -47,7 +47,7 @@ function TestimonialCard({
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="bg-asphalt p-8 rounded-xl border border-secondary/20 hover:border-secondary/40 transition-all duration-300"
+      className="bg-gradient-to-br from-asphalt via-asphalt/95 to-primary/90 p-10 rounded-3xl border-2 border-secondary/30 hover:border-secondary/60 transition-all duration-500 shadow-2xl hover:shadow-[0_25px_60px_rgba(0,200,150,0.15)] backdrop-blur-sm"
     >
       <div className="flex items-center justify-between mb-4">
         <div className="flex items-center">
@@ -62,18 +62,18 @@ function TestimonialCard({
             </svg>
           ))}
         </div>
-        <span className="px-3 py-1 bg-secondary/20 text-secondary text-xs font-semibold rounded-full border border-secondary/30">
+        <span className="px-4 py-1.5 bg-gradient-to-r from-secondary/30 to-secondary/10 text-secondary text-xs font-extrabold rounded-full border-2 border-secondary/40 shadow-lg backdrop-blur-sm">
           {testimonial.badge}
         </span>
       </div>
-      <p className="text-light mb-6 italic leading-relaxed">"{testimonial.text}"</p>
-      <div className="flex items-center">
-        <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center text-2xl mr-4 border border-secondary/30">
+      <p className="text-light mb-8 italic leading-relaxed text-lg md:text-xl font-light">"{testimonial.text}"</p>
+      <div className="flex items-center pt-4 border-t border-secondary/20">
+        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-secondary/30 to-secondary/10 flex items-center justify-center text-3xl mr-4 border-2 border-secondary/40 shadow-lg backdrop-blur-sm">
           {testimonial.avatar}
         </div>
         <div>
-          <p className="font-semibold text-light">{testimonial.name}</p>
-          <p className="text-sm text-text-secondary">{testimonial.role}</p>
+          <p className="font-extrabold text-light text-lg">{testimonial.name}</p>
+          <p className="text-sm md:text-base text-text-secondary font-light">{testimonial.role}</p>
         </div>
       </div>
     </motion.div>
@@ -82,7 +82,7 @@ function TestimonialCard({
 
 export default function Testimonials() {
   return (
-    <section className="py-20 bg-primary">
+    <section className="py-20 bg-gradient-to-b from-primary via-asphalt/30 to-primary">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -91,12 +91,17 @@ export default function Testimonials() {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-light mb-4">
-            Témoignages
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold text-light mb-6 tracking-tight">
+            Ils roulent avec nous
           </h2>
-          <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            Découvrez ce que pensent nos utilisateurs de RideTogether
+          <p className="text-lg md:text-xl text-text-secondary max-w-2xl mx-auto mb-6 leading-relaxed font-light">
+            Des motards et automobilistes qui partagent leur passion et leurs routes
           </p>
+          <div className="inline-block px-6 py-3 bg-gradient-to-r from-secondary/20 to-secondary/10 rounded-full border-2 border-secondary/30">
+            <p className="text-lg md:text-xl text-secondary font-bold italic">
+              "La route est meilleure à plusieurs."
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
