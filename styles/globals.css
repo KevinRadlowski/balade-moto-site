@@ -10,6 +10,11 @@
   
   body {
     @apply bg-primary text-light font-sans;
+    overflow-x: hidden;
+  }
+  
+  html {
+    overflow-x: hidden;
   }
 }
 

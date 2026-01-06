@@ -57,11 +57,11 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
       initial={{ opacity: 0, y: 50 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
       transition={{ duration: 0.5, delay: index * 0.15 }}
-      className="relative h-full flex"
+      className="relative h-full flex w-full"
     >
       <motion.div
         whileHover={{ y: -6, scale: 1.03 }}
-        className="relative bg-gradient-to-br from-asphalt via-asphalt/95 to-primary/90 p-10 pt-14 rounded-3xl border-2 border-secondary/30 hover:border-secondary/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,200,150,0.15)] shadow-2xl backdrop-blur-sm text-center overflow-visible group h-full flex flex-col"
+        className="relative bg-gradient-to-br from-asphalt via-asphalt/95 to-primary/90 p-8 md:p-10 pt-14 rounded-3xl border-2 border-secondary/30 hover:border-secondary/60 transition-all duration-500 hover:shadow-[0_20px_60px_rgba(0,200,150,0.15)] shadow-2xl backdrop-blur-sm text-center overflow-visible group h-full flex flex-col min-h-[280px] md:min-h-0 w-full"
       >
         {/* Premium glow effect */}
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/10 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl" />
@@ -75,12 +75,12 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
         </motion.div>
         <motion.div
           whileHover={{ scale: 1.15, rotate: 5 }}
-          className="text-secondary mb-6 flex justify-center drop-shadow-[0_0_15px_rgba(0,200,150,0.4)]"
+          className="text-secondary mb-6 flex justify-center drop-shadow-[0_0_15px_rgba(0,200,150,0.4)] flex-shrink-0"
         >
           {step.icon}
         </motion.div>
-        <h3 className="text-2xl md:text-3xl font-extrabold text-light mb-3 tracking-tight">{step.title}</h3>
-        <p className="text-text-secondary text-base md:text-lg font-light">{step.description}</p>
+        <h3 className="text-xl md:text-2xl lg:text-3xl font-extrabold text-light mb-3 tracking-tight flex-shrink-0 break-words">{step.title}</h3>
+        <p className="text-text-secondary text-sm md:text-base lg:text-lg font-light flex-grow flex items-center justify-center break-words">{step.description}</p>
       </motion.div>
     </motion.div>
   );
@@ -88,14 +88,14 @@ function StepCard({ step, index }: { step: typeof steps[0]; index: number }) {
 
 export default function HowItWorks() {
   return (
-    <section className="relative py-32 bg-gradient-to-b from-primary via-asphalt/30 to-primary overflow-visible">
+    <section className="relative py-32 bg-gradient-to-b from-primary via-asphalt/30 to-primary overflow-hidden">
       {/* Premium background */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,200,150,0.04),transparent_70%)]" />
       <div className="absolute inset-0 opacity-[0.02]">
         <div className="absolute inset-0 bg-[url('/bg-home.png')] bg-cover bg-center blur-3xl scale-150" />
       </div>
       
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 overflow-visible">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -111,7 +111,7 @@ export default function HowItWorks() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch w-full">
           {steps.map((step, index) => (
             <StepCard key={index} step={step} index={index} />
           ))}

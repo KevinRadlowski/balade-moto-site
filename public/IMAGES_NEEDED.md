@@ -38,3 +38,4 @@ Pour que le site fonctionne correctement, veuillez ajouter les images suivantes 
 - Utilisez des images de bonne qualité pour un rendu optimal
 - Compressez les images avant de les ajouter pour améliorer les performances
 
+

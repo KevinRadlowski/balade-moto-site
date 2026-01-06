@@ -96,3 +96,4 @@ Le formulaire de contact (`/contact`) envoie automatiquement un email à `kevin.
 2. Redéployez le projet
 3. Les emails fonctionneront automatiquement
 
+
